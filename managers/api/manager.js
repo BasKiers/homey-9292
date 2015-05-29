@@ -1,15 +1,15 @@
-//var extend = require('util')._extend;
-//var rest = require('rest');
-//var mime = require('rest/interceptor/mime');
-//var RSVP = require('rsvp');
-//
-//var client = rest.wrap(mime);
-//
-//var apiBaseUrl = 'http://api.9292.nl/0.1/';
-//
-//var defaultArgs = {
-//    lang: 'nl-NL'
-//};
+var extend = require('util')._extend;
+var rest = require('rest');
+var mime = require('rest/interceptor/mime');
+var RSVP = require('rsvp');
+
+var client = rest.wrap(mime);
+
+var apiBaseUrl = 'http://api.9292.nl/0.1/';
+
+var defaultArgs = {
+    lang: 'nl-NL'
+};
 
 function entity(entity, args) {
     var url = apiBaseUrl + entity;
@@ -43,5 +43,4 @@ function entity(entity, args) {
     });
 }
 
-//module.exports.init = init;
 module.exports.entity = entity;

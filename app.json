@@ -1,5 +1,5 @@
 {
-    "id": "net.koekje00.9292",
+    "id": "homey-9292",
     "version": "1.0.0",
     "name": {
         "nl": "9292"
@@ -21,7 +21,7 @@
     "speech": [
         {
             "id": "begin",
-            "importance": 1337.0,
+            "importance": 1.0,
             "synonyms": {
                 "en": [
                     "9292"

@@ -21,7 +21,7 @@
     "speech": [
         {
             "id": "begin",
-            "importance": 1337.0,
+            "importance": 1.0,
             "synonyms": {
                 "en": [
                     "9292"

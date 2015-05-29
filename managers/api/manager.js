@@ -43,5 +43,4 @@ function entity(entity, args) {
     });
 }
 
-module.exports.init = init;
 module.exports.entity = entity;

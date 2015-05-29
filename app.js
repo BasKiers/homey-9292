@@ -59,8 +59,8 @@ App.prototype.manager = function (name) {
 
 App.prototype.speech = function (speech) {
     speech.triggers.forEach(function (trigger) {
-        if (trigger.id === 'begin') {
-            Homey.manager('speech-output').say('jaaay!!');
+        if(this.managers.hasOwnProperty('speech') && typeof this.managers['speech'].incomingTrigger){
+            this.managers['speech'].incomingTrigger(speech);
         }
     });
 };

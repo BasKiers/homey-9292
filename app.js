@@ -35,7 +35,7 @@ App.prototype.delayedInit = function () {
 
     initManagers('preinit');
     initManagers('init');
-    initManagers('post');
+    initManagers('postinit');
 
     // quick fix for speech output
     /*Homey.manager('speech-output').say = Homey.log;

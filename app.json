@@ -1,0 +1,32 @@
+{
+    "id": "net.koekje00.9292",
+    "version": "1.0.0",
+    "name": {
+        "nl": "9292"
+    },
+    "description": {
+        "nl": "Dit is een voorbeeld app voor Homey"
+    },
+    "author": {
+        "name": "David Stritzl",
+        "email": "david.stritzl@gmail.com"
+    },
+    "dependencies": {
+        "node-rest-client": "~1.5.1",
+        "rsvp": "~3.0.18"
+    },
+    "permissions": [
+        "homey:manager:speech-output"
+    ],
+    "speech": [
+        {
+            "id": "begin",
+            "importance": 1337.0,
+            "synonyms": {
+                "en": [
+                    "9292"
+                ]
+            }
+        }
+    ]
+}

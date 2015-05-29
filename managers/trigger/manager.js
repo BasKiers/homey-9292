@@ -2,6 +2,7 @@ var speechInput;
 
 var app;
 var triggers = {};
+var tempTriggers = {};
 var triggerId = 0;
 
 function preInit(application){
@@ -17,7 +18,12 @@ function addTrigger(trigger, callback){
     trigger.id = trigger.id || 'trigger-'+(triggerId++);
     trigger.importance = trigger.importance || 0.7;
 
-    trigger.add(trigger, callback);
+    Homey.log(trigger);
+    speechInput.addTrigger(trigger, function(err, result){
+        Homey.log('err', err, 'result',result)
+    });
+
+    triggers[triggers.code] = callback;
 
     return trigger.id;
 }
@@ -29,7 +35,12 @@ function createTemporaryTrigger(trigger, callback, timeout){
     setTimeout(function() { removeTrigger(id) }, timeout );
 }
 
+function parseSpeech(speech){
+    Homey.log(speech);
+}
+
 module.exports.preInit = preInit;
 module.exports.removeTrigger = removeTrigger;
 module.exports.addTrigger = addTrigger;
 module.exports.createTemporaryTrigger = createTemporaryTrigger;
+module.exports.create

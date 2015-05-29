@@ -1,42 +1,70 @@
 var app;
 var triggerManager;
 
-function init(application){
+function init(application) {
     app = application;
     triggerManager = app.manager('trigger');
 
     addTriggers();
 }
 
-function addTriggers(){
+function addTriggers() {
     triggerManager.addTrigger({
-        id: "matchall",
-        importance: 1.0,
-        synonyms:{
-            "nl": [
-                "9292",
-            ]
+        id: "question",
+        importance: 0.2,
+        synonyms: {
+            "nl": ["wat is", "geef mij", "wanneer gaat"],
+            "en": ["wat is", "geef mij", "wanneer gaat"]
         }
     }, matchAll);
 
     triggerManager.addTrigger({
-        id: "matchall",
-        importance: 0.6,
-        synonyms:{
-            "nl": [
-                "trein",
-                "bus"
-            ]
+        id: "time",
+        importance: 0.4,
+        synonyms: {
+            "nl": ["volgende", "laatste", "om", "van"],
+            "en": ["volgende", "laatste", "om", "van"]
         }
     }, matchAll);
 
-    //triggerManager.triggerOnSentence(
-    //
-    //    , matchAll
-    //)
+    triggerManager.addTrigger({
+        id: "time-relative",
+        importance: 0.7,
+        synonyms: {
+            "nl": ["vertrek", "vertrektijd", "vertrekt", "aankomst", "aankomsttijd", "aan komt", "komt"],
+            "en": ["vertrek", "vertrektijd", "vertrekt", "aankomst", "aankomsttijd", "aan komt", "komt"]
+        }
+    }, matchAll);
+
+    triggerManager.addTrigger({
+        id: "from",
+        importance: 0.5,
+        synonyms: {
+            "nl": ["vanaf", "van"],
+            "en": ["vanaf", "van"]
+        }
+    }, matchAll);
+
+    triggerManager.addTrigger({
+        id: "to",
+        importance: 0.4,
+        synonyms: {
+            "nl":["naar", "tot"],
+            "en":["naar", "tot"]
+        }
+    }, matchAll);
+
+    triggerManager.addTrigger({
+        id: "location",
+        importance: 0.4,
+        synonyms: {
+            "nl":["halte", "bushalte", "busstation", "treinstation", "treinhalte", "station"],
+            "en":["halte", "bushalte", "busstation", "treinstation", "treinhalte", "station"]
+        }
+    }, matchAll);
 }
 
-function matchAll(trigger){
+function matchAll(sentence) {
 
 }
 

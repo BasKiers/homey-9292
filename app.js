@@ -33,9 +33,9 @@ App.prototype.delayedInit = function () {
         }
     }
 
-    initManagers('preinit');
+    initManagers('preInit');
     initManagers('init');
-    initManagers('post');
+    initManagers('postInit');
 
     // quick fix for speech output
     /*Homey.manager('speech-output').say = Homey.log;
@@ -46,7 +46,7 @@ App.prototype.delayedInit = function () {
 };
 
 // add logging test
-App.prototype.log = console.log;
+App.prototype.log = Homey.log;
 
 App.prototype.manager = function (name) {
     if (!this.managers.hasOwnProperty(name)) {
@@ -58,9 +58,10 @@ App.prototype.manager = function (name) {
 };
 
 App.prototype.speech = function (speech) {
+    var self = this;
     speech.triggers.forEach(function (trigger) {
-        if(this.managers.hasOwnProperty('speech') && typeof this.managers['speech'].incomingTrigger){
-            this.managers['speech'].incomingTrigger(speech);
+        if(typeof self.managers['trigger'].parseSpeech === 'function'){
+            self.managers['trigger'].parseSpeech(speech);
         }
     });
 };
@@ -68,5 +69,5 @@ App.prototype.speech = function (speech) {
 module.exports = App;
 
 // remove for homey
-var app = new App();
-app.init();
+//var app = new App();
+//app.init();

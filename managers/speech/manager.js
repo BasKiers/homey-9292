@@ -3,7 +3,8 @@ var path = require('path');
 
 var app;
 var triggerManager;
-var triggers;
+
+var triggers = {};
 
 function init(application){
     app = application;
@@ -14,8 +15,8 @@ function init(application){
 
 function initTriggers(){
     fs.readdirSync(path.join(__dirname, "triggers")).forEach(function (name) {
-        var trigger = require(path.join(__dirname, name));
-        if(trigger.init === 'function') {
+        var trigger = require("./"+path.join("triggers", name));
+        if(typeof trigger.init === 'function') {
             trigger.init(app);
         }
         triggers[name] = trigger;

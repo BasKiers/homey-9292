@@ -1,32 +1,141 @@
 {
-    "id": "homey-9292",
-    "version": "1.0.0",
-    "name": {
-        "nl": "9292"
+  "id": "homey-9292",
+  "version": "1.0.0",
+  "name": {
+    "nl": "9292"
+  },
+  "description": {
+    "nl": "Dit is een voorbeeld app voor Homey"
+  },
+  "author": {
+    "name": "David Stritzl",
+    "email": "david.stritzl@gmail.com"
+  },
+  "dependencies": {
+    "rest": "~1.3.1",
+    "rsvp": "~3.0.18"
+  },
+  "permissions": [
+    "homey:manager:speech-output",
+    "homey:manager:speech-input"
+  ],
+  "speech": [
+    {
+      "id": "begin",
+      "importance": 1,
+      "synonyms": {
+        "en": [
+          "9292"
+        ]
+      }
     },
-    "description": {
-        "nl": "Dit is een voorbeeld app voor Homey"
+    {
+      "id": "question",
+      "importance": 0.2,
+      "synonyms": {
+        "nl": [
+          "wat is",
+          "geef mij",
+          "wanneer gaat"
+        ],
+        "en": [
+          "wat is",
+          "geef mij",
+          "wanneer gaat"
+        ]
+      }
     },
-    "author": {
-        "name": "David Stritzl",
-        "email": "david.stritzl@gmail.com"
+    {
+      "id": "time",
+      "importance": 0.4,
+      "synonyms": {
+        "nl": [
+          "volgende",
+          "laatste",
+          "om",
+          "van"
+        ],
+        "en": [
+          "volgende",
+          "laatste",
+          "om",
+          "van"
+        ]
+      }
     },
-    "dependencies": {
-        "rest": "~1.3.1",
-        "rsvp": "~3.0.18"
+    {
+      "id": "time-relative",
+      "importance": 0.7,
+      "synonyms": {
+        "nl": [
+          "vertrek",
+          "vertrektijd",
+          "vertrekt",
+          "aankomst",
+          "aankomsttijd",
+          "aan komt",
+          "komt"
+        ],
+        "en": [
+          "vertrek",
+          "vertrektijd",
+          "vertrekt",
+          "aankomst",
+          "aankomsttijd",
+          "aan komt",
+          "komt"
+        ]
+      }
     },
-    "permissions": [
-        "homey:manager:speech-output"
-    ],
-    "speech": [
-        {
-            "id": "begin",
-            "importance": 1.0,
-            "synonyms": {
-                "en": [
-                    "9292"
-                ]
-            }
-        }
-    ]
+    {
+      "id": "from",
+      "importance": 0.5,
+      "synonyms": {
+        "nl": [
+          "vanaf",
+          "van"
+        ],
+        "en": [
+          "vanaf",
+          "van"
+        ]
+      }
+    },
+    {
+      "id": "to",
+      "importance": 0.3,
+      "synonyms": {
+        "nl": [
+          "naar",
+          "tot"
+        ],
+        "en": [
+          "naar",
+          "tot"
+        ]
+      }
+    },
+    {
+      "id": "location",
+      "importance": 1,
+      "synonyms": {
+        "nl": [
+          "halte",
+          "bushalte",
+          "busstation",
+          "treinstation",
+          "treinhalte",
+          "station"
+        ],
+        "en": [
+          "halte",
+          "bushalte",
+          "busstation",
+          "treinstation",
+          "treinhalte",
+          "station"
+        ]
+      }
+    }
+  ]
 }

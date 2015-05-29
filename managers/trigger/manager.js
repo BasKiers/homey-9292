@@ -18,10 +18,7 @@ function addTrigger(trigger, callback){
     trigger.id = trigger.id || 'trigger-'+(triggerId++);
     trigger.importance = trigger.importance || 0.7;
 
-    Homey.log(trigger);
-    speechInput.addTrigger(trigger, function(err, result){
-        Homey.log('err', err, 'result',result)
-    });
+    //speechInput.addTrigger(trigger);    //TODO remove triggers from config and call this function!
 
     triggers[triggers.code] = callback;
 

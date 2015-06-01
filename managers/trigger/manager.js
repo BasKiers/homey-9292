@@ -20,7 +20,7 @@ function addTrigger(trigger, callback){
 
     //speechInput.addTrigger(trigger);    //TODO remove triggers from config and call this function!
 
-    triggers[triggers.code] = callback;
+    triggers[triggers.code] = {callback: callback, importance: trigger.importance};
 
     return trigger.id;
 }
@@ -33,7 +33,7 @@ function createTemporaryTrigger(trigger, callback, timeout){
 }
 
 function parseSpeech(speech){
-    Homey.log(speech);
+    triggers[speech.triggers[0].id].callback() //TODO choose which callback to call according to amount/importance of matched triggers
 }
 
 module.exports.preInit = preInit;
